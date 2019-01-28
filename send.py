@@ -108,4 +108,4 @@ def sent_ents(doc,label1, label2, scope = 1):
                 print("obj", obj)
                 entities.append(obj)
     # print("jsondumps,", json.dumps(entities))
-    return json.dumps(entities)
+    return entities
