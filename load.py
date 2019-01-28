@@ -18,9 +18,13 @@ def load_doc(file):
         return encode(file_content).replace('\n', " ")
 def load_whitelist(file):
     # print("file",file)
+    try:
+        basestring
+    except NameError:
+        basestring = str
     if isinstance(file, list):
         return file
-    if isinstance(file,str) and file.find('.txt') < 0:
+    if isinstance(file,basestring) and file.find('.txt') < 0:
         return re.findall(r'[^,;]+', file)
     with open(file, "r") as f:
         file_content = f.read()
@@ -36,6 +40,10 @@ def load_whitelist(file):
 def encode(obj):
     # print('hit encode function')
     # print("object's type",type(obj))
+    try:
+        basestring
+    except NameError:
+        basestring = str
     if isinstance(obj, list):
         utf = map(lambda x: x.decode('utf-8', 'ignore'), obj)
         return utf

@@ -178,7 +178,8 @@ class EntityMatcher(object):
         # print("hit3")
         # print("user data", doc.user_data)
         # print(doc.ents)
-        print("entity function hit")
+        print("tokens")
+        print([(ent,ent.ent_type_) for ent in doc])
         return doc
 
 
