@@ -83,7 +83,7 @@ def extract_relation():
     entities = relex(ent1_name,ent2_name, ent1_vals,ent2_vals,text,scope)
     # print(type(ent2_vals))
     # print(type(ent1_name))
-    return jsonify({"data":object})
+    return jsonify({"data":entities})
     # return jsonify({"data":object})
 
 
