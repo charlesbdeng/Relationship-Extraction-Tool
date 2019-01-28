@@ -73,17 +73,19 @@ def extract_relation():
     # if not request.json or len(request.json["text"]) == 0:
     #     abort(400)
     object = request.json
-    text = object["text"]
-    ent1_vals = object['entity_1_values']
-    ent2_vals = object['entity_2_values']
-    ent1_name = object['entity_1_name']
-    ent2_name = object['entity_2_name']
-    scope = object['scope']
-    pipeline = object['pipeline']
-    entities = relex(ent1_name,ent2_name, ent1_vals,ent2_vals,text,scope)
-    # print(type(ent2_vals))
-    # print(type(ent1_name))
-    return jsonify({"data":entities})
+    # text = object["text"]
+    # ent1_vals = object['entity_1_values']
+    # ent2_vals = object['entity_2_values']
+    # ent1_name = object['entity_1_name']
+    # ent2_name = object['entity_2_name']
+    # scope = object['scope']
+    # pipeline = object['pipeline']
+    # entities = relex(ent1_name,ent2_name, ent1_vals,ent2_vals,text,scope)
+    # # print(type(ent2_vals))
+    # # print(type(ent1_name))
+    # return jsonify({"data":entities})
+    return jsonify({"data":object})
+
 
     # return jsonify({"data": object})
 
