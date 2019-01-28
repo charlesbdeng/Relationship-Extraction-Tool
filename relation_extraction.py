@@ -1,13 +1,13 @@
-    from __future__ import unicode_literals, print_function
-    import spacy
-    from spacy.matcher import PhraseMatcher
-    from spacy.tokens import Span
-    from spacy.language import Language
-    from collections import Counter
-    from load import load_doc, load_whitelist, encode
-    from send import sent_ents
-    from e_e import EM_Creator
-    from ta import TA_Creator
+from __future__ import unicode_literals, print_function
+import spacy
+from spacy.matcher import PhraseMatcher
+from spacy.tokens import Span
+from spacy.language import Language
+from collections import Counter
+from load import load_doc, load_whitelist, encode
+from send import sent_ents
+from e_e import EM_Creator
+from ta import TA_Creator
 
 import json
 # presidents_ = load_whitelist("data/presidents.txt")
