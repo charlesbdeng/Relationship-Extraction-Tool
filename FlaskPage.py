@@ -1,6 +1,9 @@
 from flask import Flask, jsonify, abort, make_response, request, url_for
 from flask_httpauth import HTTPBasicAuth
-
+import sys
+from os import path
+import sys
+sys.path.insert(0,"/sinequa.11/sinequa/spacy")
 from relation_extraction import relex
 from flask_cors import CORS
 
@@ -139,5 +142,4 @@ def bad():
     return "bad"
 
 if __name__ == '__main__':
-    # app.run(host="note125",port=5000,debug=False, threaded=True)
-    app.run(debug=False)
+    app.run(host="note125",port=5000,debug=False, threaded=True)
