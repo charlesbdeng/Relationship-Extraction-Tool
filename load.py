@@ -20,7 +20,7 @@ def load_whitelist(file):
     # print("file",file)
     if isinstance(file, list):
         return file
-    if isinstance(file,basestring) and file.find('.txt') < 0:
+    if isinstance(file,str) and file.find('.txt') < 0:
         return re.findall(r'[^,;]+', file)
     with open(file, "r") as f:
         file_content = f.read()
