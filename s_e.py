@@ -21,7 +21,7 @@ def sent_ent(doc,label1, label2):
 ##later can code for any entities by look up the list, now just stick with the label
         sentence = sent.text.split()
         for word in sentence:
-            print(word)
+            # print(word)
             if word in ents1:
                 entities1.append(word)
             if word in ents2:
