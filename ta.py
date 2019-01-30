@@ -4,10 +4,8 @@ from spacy.matcher import PhraseMatcher
 from spacy.tokens import Span
 from spacy.language import Language
 from collections import Counter
-from s_e import sent_ent
 from e_e import EM_Creator
 from load import load_doc, load_whitelist, encode
-
 import plac
 
 
