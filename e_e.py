@@ -5,7 +5,7 @@ from spacy.tokens import Span
 from spacy.language import Language
 from collections import Counter
 from load import load_doc, load_whitelist, encode
-from send import sent_ents
+from send import index1,index2,index3
 import json
 from spacy.symbols import ORTH, LEMMA, POS, TAG
 
@@ -160,10 +160,10 @@ class EntityMatcher(object):
                 # print("sentence:", tok.sent)
 
             span = Span(doc, start, end, label=match_id)
-            print("SPAN",span.text)
+            # print("SPAN",span.text)
             # print(list(doc.ents))
             #ValueError: [E098] Trying to set conflicting doc.ents: '(150, 153, u'GPE')' and '(151, 153, u'COUNTRIES')'. A token can only be part of one entity, so make sure the entities you're setting don't overlap.
-            print("doc ents every iteration throug matches:",  doc.ents)
+            # print("doc ents every iteration throug matches:",  doc.ents)
             if span not in doc.ents:
                 doc.ents = list(doc.ents) + [span]
         # print(self.name)
@@ -178,8 +178,7 @@ class EntityMatcher(object):
         # print("hit3")
         # print("user data", doc.user_data)
         # print(doc.ents)
-        print("tokens")
-        print([(ent,ent.ent_type_) for ent in doc])
+        # print("tokens")
         return doc
 
 
