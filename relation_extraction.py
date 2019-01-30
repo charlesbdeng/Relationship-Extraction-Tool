@@ -63,6 +63,6 @@ def all_ent_rel(label1, label2, rel_label, entities1,entities2, relations, text,
     # TA_Creator(nlp, entities2_, label2)
     doc = nlp(text_)
     # print("list of json entities",sent_ents(doc,label1,label2))
-    return index3(doc,label1,label2, rel_label,1)
+    return index3(doc,label1,label2, rel_label,scope)
 
 # print(relex("PRESIDENTS", "COUNTRIES", presidents_, countries_, train, 1  ))
