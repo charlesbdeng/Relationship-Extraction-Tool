@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, abort, make_response, request, url_for
 # from flask_httpauth import HTTPBasicAuth
 
-from relation_extraction import relex
+from relation_extraction import entity_entity, relation_entity, all_ent_rel
 from flask_cors import CORS
 
 # auth = HTTPBasicAuth()
@@ -68,8 +68,8 @@ def not_found(error):
 #     return jsonify({'task': task}), 201
 
 
-@app.route('/api/relex', methods = ["POST"])
-def extract_relation():
+@app.route('/api/entity_entity', methods = ["POST"])
+def ent_ent():
     # if not request.json or len(request.json["text"]) == 0:
     #     abort(400)
     object = request.json
@@ -79,18 +79,51 @@ def extract_relation():
     ent1_name = object['entity_1_name']
     ent2_name = object['entity_2_name']
     scope = object['scope']
-    pipeline = object['pipeline']
-    entities = relex(ent1_name,ent2_name, ent1_vals,ent2_vals,text,scope)
+    entities = entity_entity(ent1_name,ent2_name, ent1_vals,ent2_vals,text,scope)
     # print(type(ent2_vals))
     # print(type(ent1_name))
     return jsonify({"data":entities})
+
+
+@app.route('/api/relation_entity', methods = ["POST"])
+def rel_ent():
+    # if not request.json or len(request.json["text"]) == 0:
+    #     abort(400)
+    object = request.json
+    text = object["text"]
+    ent1_vals = object['entity_1_values']
+    ent2_vals = object['entity_2_values']
+    ent1_name = object['entity_1_name']
+    ent2_name = object['entity_2_name']
+    scope = object['scope']
+    entities = relation_entity(ent1_name,ent2_name, ent1_vals,ent2_vals,text,scope)
+    # print(type(ent2_vals))
+    # print(type(ent1_name))
+    return jsonify({"data":entities})
+
     # return jsonify({"data":object})
 
 
     # return jsonify({"data": object})
 
 
-
+@app.route('/api/all_entities_relations', methods = ["POST"])
+def all():
+    # if not request.json or len(request.json["text"]) == 0:
+    #     abort(400)
+    object = request.json
+    text = object["text"]
+    ent1_vals = object['entity_1_values']
+    ent2_vals = object['entity_2_values']
+    ent1_name = object['entity_1_name']
+    ent2_name = object['entity_2_name']
+    relation_vals = object["relation_values"]
+    rel_name = object["relation_name"]
+    scope = object['scope']
+    entities = all_ent_rel(ent1_name, ent2_name, rel_name, ent1_vals,ent2_vals, relation_vals, text, scope)
+    # print(type(ent2_vals))
+    # print(type(ent1_name))
+    return jsonify({"data":entities})
 
     # return jsonify({"text":text}),200
 @app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['PUT'])
