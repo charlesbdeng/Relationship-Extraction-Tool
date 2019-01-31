@@ -91,12 +91,12 @@ def rel_ent():
     #     abort(400)
     object = request.json
     text = object["text"]
-    ent1_vals = object['entity_1_values']
-    ent2_vals = object['entity_2_values']
-    ent1_name = object['entity_1_name']
-    ent2_name = object['entity_2_name']
+    ent_values = object['entity_values']
+    rel_values = object['relation_values']
+    ent_name = object['entity_name']
+    rel_name = object['relation_name']
     scope = object['scope']
-    entities = relation_entity(ent1_name,ent2_name, ent1_vals,ent2_vals,text,scope)
+    entities = relation_entity(ent_name,rel_name, ent_values, rel_values,text,scope)
     # print(type(ent2_vals))
     # print(type(ent1_name))
     return jsonify({"data":entities})
