@@ -1,6 +1,8 @@
 from __future__ import print_function,unicode_literals
 import json
-from e_r import ent_relation
+from relation_functions import extract_entity
+
+
 def index1(doc,label1, label2, scope = 1):
     sent_index = {}
     sent_order = {}
@@ -23,15 +25,15 @@ def index1(doc,label1, label2, scope = 1):
             if abs(ent1_sent_i - ent2_sent_i) < scope:
                 obj[str("entities")] = types
                 obj[lower_label1] = {
-                                str("value"): ent1.text,
-                                str("position"):  ent1.sent.text.index(ent1.text),
-                                str("length"): len(ent1.text),
+                                str("value"): ent1._.text,
+                                str("position"):  ent1.sent.text.index(ent1._.text),
+                                str("length"): len(ent1._.text),
                                 str("type"): lower_label1
                                 }
                 obj[lower_label2] =  {
-                                str("value"): ent2.text,
-                                str("position"):  ent2.sent.text.index(ent2.text),
-                                str("length"): len(ent2.text),
+                                str("value"): ent2._.text,
+                                str("position"):  ent2.sent.text.index(ent2._.text),
+                                str("length"): len(ent2._.text),
                                 str("index"): ent2.i,
                                 str("type"):lower_label2
                                 }
@@ -85,9 +87,9 @@ def index2(doc,label1, relation, scope = 1):
             if abs(ent1_sent_i - rel_sent_i) < scope:
                 obj[str("entities")] = types
                 obj[lower_label] = {
-                                str("value"): ent1.text,
-                                str("position"):  ent1.sent.text.index(ent1.text),
-                                str("length"): len(ent1.text),
+                                str("value"): ent1._.text,
+                                str("position"):  ent1.sent.text.index(ent1._.text),
+                                str("length"): len(ent1._.text),
                                 str("type"): lower_label
                                 }
                 obj[lower_relation] =  {
@@ -100,7 +102,7 @@ def index2(doc,label1, relation, scope = 1):
                 sentence1 = ent1.sent
                 sentence2 = rel.sent
                 ent_token = rel
-                entity = ent_relation(ent_token, relation)
+                entity = extract_entity(ent_token, relation)
                 if entity:
                     obj[str("entity")] = {
                                         str("value"): str(entity.text),
@@ -160,15 +162,15 @@ def index3(doc,label1, label2,relation,scope = 1):
             if abs(ent1_sent_i - ent2_sent_i) < scope:
                 obj[str("entities")] = types
                 obj[lower_label1] = {
-                                str("value"): ent1.text,
-                                str("position"):  ent1.sent.text.index(ent1.text),
-                                str("length"): len(ent1.text),
+                                str("value"): ent1._.text,
+                                str("position"):  ent1.sent.text.index(ent1._.text),
+                                str("length"): len(ent1._.text),
                                 str("type"): lower_label1
                                 }
                 obj[lower_label2] =  {
-                                str("value"): ent2.text,
-                                str("position"):  ent2.sent.text.index(ent2.text),
-                                str("length"): len(ent2.text),
+                                str("value"): ent2._.text,
+                                str("position"):  ent2.sent.text.index(ent2._.text),
+                                str("length"): len(ent2._.text),
                                 str("index"): ent2.i,
                                 str("type"):lower_label2
                                 }

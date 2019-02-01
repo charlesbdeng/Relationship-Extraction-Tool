@@ -5,17 +5,14 @@ from spacy.matcher import Matcher
 from spacy.tokens import Span
 from spacy.language import Language
 from collections import Counter
-from load import load_doc, load_whitelist, encode
-from e_e import EM_Creator
+from connectors import load_doc, load_whitelist, encode
+from entity_matcher import EntityMatcherCreator
+from relation_functions import extract_entity
 from e_r import ent_relation
-from ta import TA_Creator
-from r_e import RM_Creator
-from send import index1,index2, index3
+from relation_matcher import RM_Creator
+from indexers import index1,index2, index3
 from spacy.lemmatizer import Lemmatizer
 from spacy.lang.en import LEMMA_INDEX, LEMMA_EXC, LEMMA_RULES
-
-
-
 # nlp = spacy.load("en_core_web_sm")
 # matcher = Matcher(nlp.vocab)
 #
@@ -51,8 +48,8 @@ nlp = spacy.load('en_core_web_sm')
 disease = load_whitelist(["psoriasis"])
 drug = load_whitelist(["nucleotides"])
 cure = load_whitelist(['treat'])
-EM_Creator(nlp, disease, "disease")
-EM_Creator(nlp, drug, "drug")
+EntityMatcherCreator(nlp, disease, "disease")
+EntityMatcherCreator(nlp, drug, "drug")
 RM_Creator(nlp, cure, "cure")
 # doc = nlp(u"\"In our job, we're going to get this exposure,\" said Mike Holland, an American Airlines captain and resident \"radiation expert\" for the Allied Pilots Association, the union that represents American's 15,000 pilots. \"There's no way you can be a pilot and not get this exposure.\"")
 
@@ -61,13 +58,9 @@ doc = nlp("cylic nucleotides might ultimately safely and effectively treat  psor
 # doc = nlp("The use of methotrexate as a treatment for psoriasis.")
 
 # doc = nlp(nlp("Failure can be treated with experience.").text)
-
 print(index3(doc,"drug","disease","cure",1 ))
-
 # print([ents for ents in doc.ents])
 # print([doc.user_data])
-
-
 # import spacy
 # from spacy.matcher import Matcher
 #
@@ -94,29 +87,16 @@ print(index3(doc,"drug","disease","cure",1 ))
 # # ents = [(ent,ent.head) for ent in doc]
 # #
 # displacy.serve([doc], style='dep')
-
-#
-#
-#
 # user_data = ent_relation(ents[6][0],"DISEASE")
 # print("usserdata", user_data)
 # print(doc.ents[0])
-
-
 # for ent in ents:
 #     print(ent[0])
 #     print([child for child in ent[1]])
-
-
-
-
 # nlp = spacy.load('en_core_web_sm')
 # person = load_whitelist(["Charles Deng", "Deng", "grind", "complex", "thinkable", "value"])
 # position = load_whitelist(['captain'])
 # cures = load_whitelist(['treat'])
-#
-#
-#
 # RM_Creator(nlp, cures, "CURES")
 # TA_Creator(nlp, person, "PERSON")
 # TA_Creator(nlp, person, "POSITION")
@@ -131,7 +111,6 @@ print(index3(doc,"drug","disease","cure",1 ))
 # # add match ID "HelloWorld" with no callback and one pattern
 # pattern = [[{'LOWER': 'hello'}], [{'LEMMA':'headche'}]]
 # matcher.add('HelloWorld', None, *pattern)
-
 # doc = nlp(u'Hello, world! Hello world, these headaches are so good!')
 # matches = matcher(doc)
 # for match_id, start, end in matches:
@@ -143,9 +122,7 @@ print(index3(doc,"drug","disease","cure",1 ))
 # import spacy
 # from spacy.matcher import Matcher
 # import re
-#
 # nlp = spacy.load('en_core_web_sm')
-#
 # definitely_flag = lambda text: bool(re.compile(r""+'deff?in[ia]tely').match(text))
 # IS_DEFINITELY = nlp.vocab.add_flag(definitely_flag)
 # matcher = Matcher(nlp.vocab)
@@ -153,13 +130,8 @@ print(index3(doc,"drug","disease","cure",1 ))
 # treat = lambda text: bool(re.compile(r""+'.*treat.*').match(text))
 # IS_DEFINITELY = nlp.vocab.add_flag(treat)
 # matcher.add('TREAT', None, [{IS_DEFINITELY: True}])
-#
-#
-#
-#
 # doc = nlp(u'The spelling is "definitely", not "definately" or "deffinitely". treat')
 # matches = matcher(doc)
 # for match_id, start, end in matches:
 #     span = doc[start:end]
 #     print(span.text)
-#

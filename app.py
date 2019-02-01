@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, abort, make_response, request, url_for
 # from flask_httpauth import HTTPBasicAuth
 
-from relation_extraction import entity_entity, relation_entity, all_ent_rel
+from extraction_functions import entity_entity, relation_entity, all_ent_rel
 from flask_cors import CORS
 
 # auth = HTTPBasicAuth()
@@ -174,4 +174,4 @@ def bad():
     return "bad"
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)

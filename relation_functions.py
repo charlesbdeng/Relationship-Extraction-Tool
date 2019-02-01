@@ -5,7 +5,7 @@ from spacy.matcher import Matcher
 from spacy.tokens import Span
 from spacy.language import Language
 
-def ent_relation(ent,label):
+def extract_entity(ent,label):
 
     if ent == ent.head:
         if ent.pos_ == 'NOUN':
@@ -17,7 +17,7 @@ def ent_relation(ent,label):
                 "VERB": False,
                 "ADV": False,
             }
-            
+
             return [ents for ents in ent.subtree if ents.ent_type_ != label and ents.pos_ in ["PRON", "NOUN"]][0]
     else:
         return ent_relation(ent.head, label)
