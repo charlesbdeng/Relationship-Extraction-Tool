@@ -62,7 +62,7 @@ doc = nlp("cylic nucleotides might ultimately safely and effectively treat  psor
 
 # doc = nlp(nlp("Failure can be treated with experience.").text)
 
-print(index2(doc,"drug","cure",1 ))
+print(index3(doc,"drug","disease","cure",1 ))
 
 # print([ents for ents in doc.ents])
 # print([doc.user_data])
@@ -84,16 +84,16 @@ print(index2(doc,"drug","cure",1 ))
 #     span = doc[start:end]
 #     print(span.text)
 # import spacy
-from spacy import displacy
-nlp = spacy.load('en_core_web_sm')
-# doc = nlp("The use of methotrexate as a treatment for psoriasis.")
-doc = nlp("cylic nucleotides might ultimately safely and effectively treat  psoriasis")
-# doc.user_data["DISEASE"] = ["psoriasis"]
-# doc1 = nlp(u"\"Being able to forecast a higher radiation risk for so-called 'polar' planes, those that tend to fly at higher altitudes near the Earth's poles, would allow commercial airlines to warn pilots to reroute planes to lower altitudes to decrease the risk of long-term exposure to radiation for their crews, who fly the same route over and over again,\" Clifford Lopate, a UNH physics researcher and professor, said in a March 5 statement.")
-# doc2 = nlp(u"\"In our job, we're going to get this exposure,\" said Mike Holland, an American Airlines captain and resident \"radiation expert\" for the Allied Pilots Association, the union that represents American's 15,000 pilots. \"There's no way you can be a pilot and not get this exposure.\"")
-# ents = [(ent,ent.head) for ent in doc]
-#
-displacy.serve([doc], style='dep')
+# from spacy import displacy
+# nlp = spacy.load('en_core_web_sm')
+# # doc = nlp("The use of methotrexate as a treatment for psoriasis.")
+# doc = nlp("Sinequa does a great job of structuring unstructured information.")
+# # doc.user_data["DISEASE"] = ["psoriasis"]
+# # doc1 = nlp(u"\"Being able to forecast a higher radiation risk for so-called 'polar' planes, those that tend to fly at higher altitudes near the Earth's poles, would allow commercial airlines to warn pilots to reroute planes to lower altitudes to decrease the risk of long-term exposure to radiation for their crews, who fly the same route over and over again,\" Clifford Lopate, a UNH physics researcher and professor, said in a March 5 statement.")
+# # doc2 = nlp(u"\"In our job, we're going to get this exposure,\" said Mike Holland, an American Airlines captain and resident \"radiation expert\" for the Allied Pilots Association, the union that represents American's 15,000 pilots. \"There's no way you can be a pilot and not get this exposure.\"")
+# # ents = [(ent,ent.head) for ent in doc]
+# #
+# displacy.serve([doc], style='dep')
 
 #
 #

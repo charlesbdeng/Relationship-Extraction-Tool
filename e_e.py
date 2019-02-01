@@ -109,20 +109,21 @@ class EntityMatcher(object):
                     ##regex here to fix - and spaces
                     # print("literal:",literal)
                     if index == len(phrase)-1:
-                        entity["name"] = literal
-                        entity["index"] = start
+                        tok.text = literal
                         tok.ent_type_ = self.label
-                        entity["pos"] = tok.pos_
-                        entity["length"] = len(entity["name"])
-                        entity["sentence"] = tok.sent
-                        entity["type"] = tok.ent_type_
-                        entity["token"] = tok
-                        entity["length"] = len(entity["name"])
-                        entity["dep"] = tok.dep_
-                        entity["ancestors"] = [anc for anc in tok.ancestors]
-                        entity["children"] = tok.children
-                        entity["head"] = tok.head
-                        entities.append(entity)
+                        # entity["index"] = start
+                        # tok.ent_type_ = self.label
+                        # entity["pos"] = tok.pos_
+                        # entity["length"] = len(entity["name"])
+                        # entity["sentence"] = tok.sent
+                        # entity["type"] = tok.ent_type_
+                        # entity["token"] = tok
+                        # entity["length"] = len(entity["name"])
+                        # entity["dep"] = tok.dep_
+                        # entity["ancestors"] = [anc for anc in tok.ancestors]
+                        # entity["children"] = tok.children
+                        # entity["head"] = tok.head
+                        entities.append(tok)
 
                 else:
                     print("object set")
@@ -151,7 +152,7 @@ class EntityMatcher(object):
                     entity["lemma"] = tok.lemma_
 
 
-                    entities.append(entity)
+                    entities.append(tok)
                     ##shortened form will appear as well which is good if the query only specifies that form
 
                 # print("name:", tok.text)

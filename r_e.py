@@ -54,20 +54,21 @@ class RelationMatcher(object):
             match = doc[start:end]
             relation = {}
             for tok in match:
-                relation["name"] = tok.text
-                relation["index"] = tok.i
+
+                # relation["name"] = tok.text
+                # relation["index"] = tok.i
                 tok.ent_type_ = self.label
-                relation["pos"] = tok.pos_
-                relation["length"] = len(relation["name"])
-                relation["sentence"] = tok.sent
-                relation["type"] = tok.ent_type_
-                relation["token"] = tok
-                relation["length"] = len(relation["name"])
-                relation["dep"] = tok.dep_
-                relation["ancestors"] = [anc for anc in tok.ancestors]
-                relation["children"] = tok.children
-                relation["head"] = tok.head
-            relations.append(relation)
+                # relation["pos"] = tok.pos_
+                # relation["length"] = len(relation["name"])
+                # relation["sentence"] = tok.sent
+                # relation["type"] = tok.ent_type_
+                # relation["token"] = tok
+                # relation["length"] = len(relation["name"])
+                # relation["dep"] = tok.dep_
+                # relation["ancestors"] = [anc for anc in tok.ancestors]
+                # relation["children"] = tok.children
+                # relation["head"] = tok.head
+            relations.append(tok)
 
             span = Span(doc, start, end, label=match_id)
             print("SPAN",span.text)
