@@ -17,7 +17,6 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-
 @app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['GET'])
 def get_task(task_id):
     task = [task for task in tasks if task['id'] == task_id]
@@ -55,6 +54,7 @@ def rel_ent():
     scope = object['scope']
     entities = relation_entity(ent_name,rel_name, ent_values, rel_values,text,scope)
     return jsonify({"data":entities})
+
 @app.route('/api/all_entities_relations', methods = ["POST"])
 def all():
     object = request.json
