@@ -17,13 +17,6 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['GET'])
-def get_task(task_id):
-    task = [task for task in tasks if task['id'] == task_id]
-    if len(task) == 0:
-        abort(404)
-    return jsonify({'task': task[0]})
-
 @app.errorhandler(404)
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
@@ -57,6 +50,10 @@ def rel_ent():
 
 @app.route('/api/all_entities_relations', methods = ["POST"])
 def all():
+    if not request.json:
+        abort(400)
+    if 'text' in request.json and type(request.json['text']) != unicode:
+        abort(400)
     object = request.json
     text = object["text"]
     ent1_vals = object['entity_1_values']
@@ -69,51 +66,9 @@ def all():
     entities = all_ent_rel(ent1_name, ent2_name, rel_name, ent1_vals,ent2_vals, relation_vals, text, scope)
     return jsonify({"data":entities})
 
-@app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['PUT'])
-def update_task(task_id):
-    task = [task for task in tasks if task['id'] == task_id]
-    if len(task) == 0:
-        abort(404)
-    if not request.json:
-        abort(400)
-    if 'title' in request.json and type(request.json['title']) != unicode:
-        abort(400)
-    if 'description' in request.json and type(request.json['description']) is not unicode:
-        abort(400)
-    if 'done' in request.json and type(request.json['done']) is not bool:
-        abort(400)
-    task[0]['title'] = request.json.get('title', task[0]['title'])
-    task[0]['description'] = request.json.get('description', task[0]['description'])
-    task[0]['done'] = request.json.get('done', task[0]['done'])
-    return jsonify({'task': task[0]})
-
-@app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['DELETE'])
-def delete_task(task_id):
-    task = [task for task in tasks if task['id'] == task_id]
-    if len(task) == 0:
-        abort(404)
-    tasks.remove(task[0])
-    return jsonify({'result': True})
-
-def make_public_task(task):
-    new_task = {}
-    for field in task:
-        if field == 'id':
-            new_task['uri'] = url_for('get_task', task_id=task['id'], _external=True)
-        else:
-            new_task[field] = task[field]
-    return new_task
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
-
-@app.route('/test')
-def test():
-    return "Testi"
-
-@app.route('/bad')
-def bad():
-    return "bad"
 
 if __name__ == '__main__':
     app.run(debug=False)
