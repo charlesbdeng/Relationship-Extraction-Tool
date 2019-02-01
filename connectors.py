@@ -21,7 +21,6 @@ def load_whitelist(file):
         if file_content.find(";") > -1:
             return encode(re.findall(r'[^,;]+', file_content))
         else:
-            # print("space load works")
             return encode(file_content.split("\n"))
 def encode(obj):
     try:

@@ -70,8 +70,8 @@ def not_found(error):
 
 @app.route('/api/entity_entity', methods = ["POST"])
 def ent_ent():
-    # if not request.json or len(request.json["text"]) == 0:
-    #     abort(400)
+    if not request.json or len(request.json["text"]) == 0:
+        abort(400)
     object = request.json
     text = object["text"]
     ent1_vals = object['entity_1_values']
@@ -80,8 +80,6 @@ def ent_ent():
     ent2_name = object['entity_2_name']
     scope = object['scope']
     entities = entity_entity(ent1_name,ent2_name, ent1_vals,ent2_vals,text,scope)
-    # print(type(ent2_vals))
-    # print(type(ent1_name))
     return jsonify({"data":entities})
 
 
@@ -174,4 +172,4 @@ def bad():
     return "bad"
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
