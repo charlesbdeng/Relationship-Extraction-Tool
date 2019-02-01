@@ -3,7 +3,7 @@ import spacy
 from spacy.matcher import Matcher
 from spacy.tokens import Span
 from spacy.language import Language
-from connector import load_doc, load_whitelist, encode
+from connectors import load_doc, load_whitelist, encode
 import re
 from spacy.symbols import ORTH, LEMMA, POS, TAG
 
