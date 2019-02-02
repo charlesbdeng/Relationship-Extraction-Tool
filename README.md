@@ -86,12 +86,7 @@ The entity and relation values can either be in a list or in a string separated 
 ```
     {
       "entity_1_values": "Emmanuel Macron;Macron",
-      "entity_2_values": [
-                        "France",
-                        "United States",
-                        "U.S",
-                        "US"
-      ],
+      "entity_2_values": ["France","United States","U.S", "US"],
       "entity_1_name": "PRESIDENTS",
       "entity_2_name": "COUNTRIES",
       "text": "Did France  President Emmanuel Macron sum up Brexit better than the British? Emmanuel Macron launches 'grand debate' tour in response to France's yellow vest protests. French President       Emmanuel Macron delivers a speech to mayors from rural Normandy during the 'grand debate' in Grand Bourgtheroulde on Tuesday. Macron encouraged people to express their grievances and propose changes, a strategy aimed to quell weeks of anti-government protests. (Philippe Wojazer/Pool Photo via AP) Macron was appointed Deputy Secretary General to the President by François Hollande in May 2012.
@@ -104,11 +99,11 @@ The entity and relation values can either be in a list or in a string separated 
 ```
     {
         "entity_values": "Calcium channel blockers",
-	    "relation_values": ["treat","relax","increase"],
-    	"entity_name": "drugs",
-	    "relation_name": "cures",
-	    "text": "Calcium channel blockers help treat chest pain (your doctor may say “angina”) and high blood pressure. They relax blood vessels and increase blood and oxygen to your heart. That eases its workload. They treat heart failure caused by hypertension. But they’re used only when other medicines to lower blood pressure don’t work. Ask your doctor if one is right for you.",
-	    "scope": 3,
+	      "relation_values": ["treat","relax","increase"],
+    	  "entity_name": "drugs",
+	      "relation_name": "cures",
+	      "text": "Calcium channel blockers help treat chest pain (your doctor may say “angina”) and high blood pressure. They relax blood vessels and increase blood and oxygen to your heart. That eases its workload. They treat heart failure caused by hypertension. But they’re used only when other medicines to lower blood pressure don’t work. Ask your doctor if one is right for you.",
+	      "scope": 3,
 }
 ```
 * Return sentences containing entities and relations given both :
@@ -116,15 +111,15 @@ The entity and relation values can either be in a list or in a string separated 
 ```
 {
     "entity_1_values": "Emmanuel Macron;Macron",
-	"entity_2_values": ["France", "United States", "U.S", "US"],
-	"entity_1_name": "PRESIDENTS",
-	"entity_2_name": "COUNTRIES",
-	"relation_values":["launches"],
-	"relation_name":"actions",
-	"text":
+    "entity_2_values": ["France", "United States", "U.S", "US"],
+    "entity_1_name": "PRESIDENTS",
+    "entity_2_name": "COUNTRIES",
+    "relation_values":["launches"],
+    "relation_name":"actions",
+	  "text":
 	    "Did French President Emmanuel Macron sum up Brexit better than the British? Emmanuel Macron launches 'grand debate' tour in response to France's yellow vest protests. French President Emmanuel Macron delivers a speech to mayors from rural Normandy during the 'grand debate' in Grand Bourgtheroulde on Tuesday. Macron encouraged people to express their grievances and propose changes, a strategy aimed to quell weeks of anti-government protests. (Philippe Wojazer/Pool Photo via AP) Macron was appointed Deputy Secretary General to the President by François Hollande in May 2012. He was appointed Minister of Economy, Industry and Digital Affairs in August 2014 under the Second Valls government, where he pushed through business-friendly reforms. He resigned in August 2016 to launch a bid in the 2017 presidential election. After being a member of the Socialist Party from 2006 to 2009, Macron ran in the election under the banner of a centrist political movement he founded in April 2016, En Marche!. He won the election on 7 May 2017 with 66.1% of the vote in the second round.",
-	"scope": 1,
-	"pipeline":0
+	  "scope": 1,
+   	"pipeline":0
 
 }
 
@@ -141,48 +136,150 @@ The entity and relation values can either be in a list or in a string separated 
 Example: http://example.gov/api/v1/magazines.json
 
 Response body:
-
+```
+{
+"data": [
     {
-        "metadata": {
-            "resultset": {
-                "count": 123,
-                "offset": 0,
-                "limit": 10
-            }
+        "children": {
+            "text": [
+                [
+                    "France"
+                ],
+                [
+                    "President",
+                    "Emmanuel"
+                ],
+                [
+                    "Did",
+                    "Macron",
+                    "up",
+                    "Brexit",
+                    "better",
+                    "?"
+                ]
+            ]
         },
-        "results": [
-            {
-                "id": "1234",
-                "type": "magazine",
-                "title": "Public Water Systems",
-                "tags": [
-                    {"id": "125", "name": "Environment"},
-                    {"id": "834", "name": "Water Quality"}
+        "countries": {
+            "index": 1,
+            "length": 0,
+            "position": 0,
+            "type": "countries",
+            "value": ""
+        },
+        "entities": [
+            "presidents",
+            "countries"
+        ],
+        "phrase": {
+            "text": "Did France  President Emmanuel Macron sum up Brexit better than the British?"
+        },
+        "presidents": {
+            "length": 15,
+            "position": 22,
+            "type": "presidents",
+            "value": "Emmanuel Macron"
+        },
+        "relation": {
+            "POS": [
+                "PROPN",
+                "PROPN",
+                "VERB"
+            ],
+            "text": [
+                "sum"
+            ]
+        },
+        "relation1": {
+            "text": [
+                "sum"
+            ]
+        },
+        "sentence1": {
+            "index": 0,
+            "text": "Did France  President Emmanuel Macron sum up Brexit better than the British?"
+        },
+        "sentence2": {
+            "index": 0,
+            "text": "Did France  President Emmanuel Macron sum up Brexit better than the British?"
+        }
+    },
+    {
+        "children": {
+            "text": [
+                [
+                    "France",
+                    "yellow",
+                    "vest"
                 ],
-                "created": "1231621302"
-            },
-            {
-                "id": 2351,
-                "type": "magazine",
-                "title": "Public Schools",
-                "tags": [
-                    {"id": "125", "name": "Elementary"},
-                    {"id": "834", "name": "Charter Schools"}
+                [
+                    "protests"
                 ],
-                "created": "126251302"
-            }
-            {
-                "id": 2351,
-                "type": "magazine",
-                "title": "Public Schools",
-                "tags": [
-                    {"id": "125", "name": "Pre-school"},
+                [
+                    "to"
                 ],
-                "created": "126251302"
-            }
-        ]
+                [
+                    "response"
+                ],
+                [
+                    "debate",
+                    "in",
+                    "."
+                ]
+            ]
+        },
+        "countries": {
+            "index": 25,
+            "length": 0,
+            "position": 0,
+            "type": "countries",
+            "value": ""
+        },
+        "entities": [
+            "presidents",
+            "countries"
+        ],
+        "phrase": {
+            "text": "Emmanuel Macron launches 'grand debate' tour in response to France's yellow vest protests."
+        },
+        "presidents": {
+            "length": 15,
+            "position": 0,
+            "type": "presidents",
+            "value": "Emmanuel Macron"
+        },
+        "relation": {
+            "POS": [
+                "NOUN",
+                "ADP",
+                "NOUN",
+                "ADP",
+                "NOUN"
+            ],
+            "text": [
+                "protests",
+                "response",
+                "tour"
+            ]
+        },
+        "relation1": {
+            "text": [
+                "launches",
+                "debate",
+                "tour"
+            ]
+        },
+        "sentence1": {
+            "index": 1,
+            "text": "Emmanuel Macron launches 'grand debate' tour in response to France's yellow vest protests."
+        },
+        "sentence2": {
+            "index": 1,
+            "text": "Emmanuel Macron launches 'grand debate' tour in response to France's yellow vest protests."
+        }
     }
-
+]
+}
+```
 ### POST /api/relation_entity
 
 Example: https://secure-spire-37812.herokuapp.com/api/relation_entity
