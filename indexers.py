@@ -196,8 +196,8 @@ def index3(doc,label1, label2,relation,scope = 1):
                 high = ent1_sent_i if ent1_sent_i > ent2_sent_i  else ent2_sent_i
                 phrase_list = [sent.text for sent in list(doc.sents)[low:high+1]]
                 for rel in doc.user_data[relation]:
-                    if rel.sent.text in phrase_list: #checks to see if a relation exist among the scope of sentences containing and between the entities
-                        rel_entity = rel  #if so add it to the data                
+                    if rel.sent.text in phrase_list: #checks to see if a relation exist among the scope of sentences containing and between the entities and adds it to the data
+                        rel_entity = rel
                         obj[str(relation)] = {
                                             str("value"): str(rel_entity.text),
                                             str("position"): rel_entity.sent.text.index(rel_entity.text),
