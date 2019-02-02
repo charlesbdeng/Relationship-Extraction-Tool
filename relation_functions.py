@@ -6,11 +6,13 @@ from spacy.tokens import Span
 from spacy.language import Language
 
 def extract_entity(ent,label):
-
+###loops through the entities's head to find words that are associated with a relation and an entity
     if ent == ent.head:
+        #if an entity is found return it
         if ent.pos_ == 'NOUN':
             return ent
         else:
+        #if a relation is returned, iterate through its children to find entities related to it 
             ent_true ={
                 "PRON": True,
                 "NOUN":True,

@@ -13,6 +13,11 @@ from relation_matcher import RM_Creator
 from indexers import index1,index2, index3
 from spacy.lemmatizer import Lemmatizer
 from spacy.lang.en import LEMMA_INDEX, LEMMA_EXC, LEMMA_RULES
+###test file###
+
+
+
+
 # nlp = spacy.load("en_core_web_sm")
 # matcher = Matcher(nlp.vocab)
 #

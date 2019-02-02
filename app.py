@@ -20,10 +20,12 @@ CORS(app)
 @app.errorhandler(404)
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
-
+#extracts relation if two entities are given
 @app.route('/api/entity_entity', methods = ["POST"])
 def ent_ent():
-    if not request.json or len(request.json["text"]) == 0:
+    if not request.json:
+        abort(400)
+    if 'text' in request.json and type(request.json['text']) != unicode:
         abort(400)
     object = request.json
     text = object["text"]
@@ -35,9 +37,13 @@ def ent_ent():
     entities = entity_entity(ent1_name,ent2_name, ent1_vals,ent2_vals,text,scope)
     return jsonify({"data":entities})
 
-
+#extracts an entity related to another entity if an entity and relation are given
 @app.route('/api/relation_entity', methods = ["POST"])
 def rel_ent():
+    if not request.json:
+        abort(400)
+    if 'text' in request.json and type(request.json['text']) != unicode:
+        abort(400)
     object = request.json
     text = object["text"]
     ent_values = object['entity_values']
@@ -48,6 +54,7 @@ def rel_ent():
     entities = relation_entity(ent_name,rel_name, ent_values, rel_values,text,scope)
     return jsonify({"data":entities})
 
+#extracts all sentences containing the given entity, relation, and entity
 @app.route('/api/all_entities_relations', methods = ["POST"])
 def all():
     if not request.json:

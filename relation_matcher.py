@@ -9,12 +9,15 @@ from spacy.symbols import ORTH, LEMMA, POS, TAG
 
 
 def RelationMatcherCreator(nlp, terms, label):
+    #function adds relationMatcher to the pipeline
     pipe = "RelationMatcher"+label
     Language.factories[pipe] = lambda nlp: RelationMatcher(nlp, terms,label)
     nlp.add_pipe(nlp.create_pipe(pipe), after="ner")
 class RelationMatcher(object):
     def __init__(self, nlp, terms, label):
         self.matcher = Matcher(nlp.vocab)
+        #adds the regex pattern that checks to see if a word contains the terms given
+        #Example: (treat) will still match the word treatment in a text
         for term in terms:
             regex = ".*" + term + ".*"
             relation_flag = lambda text: bool(re.compile(r"" + regex).match(text))

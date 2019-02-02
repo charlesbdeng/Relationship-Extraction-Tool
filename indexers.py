@@ -2,7 +2,7 @@ from __future__ import print_function,unicode_literals
 import json
 from relation_functions import extract_entity
 
-
+#entity + entity = relation
 def index1(doc,label1, label2, scope = 1):
     sent_index = {}
     sent_order = {}
@@ -12,6 +12,7 @@ def index1(doc,label1, label2, scope = 1):
         sent_index[sent] = index
     for index,sent in enumerate(doc.sents):
         sent_order[index] = sent
+    #creates two hashmaps with the sentences as keys to find its index and vice versa
     entities = []
     types = [lower_label1, lower_label2]
     for ent2 in doc.user_data[label2]:
@@ -22,6 +23,8 @@ def index1(doc,label1, label2, scope = 1):
 
             ent1_sent_i = sent_index[ent1_sent]
             ent2_sent_i = sent_index[ent2_sent]
+            #looks up index of both sentences
+            #compares to see if their indices are as apart as to what the scope would define
             if abs(ent1_sent_i - ent2_sent_i) < scope:
                 obj[str("entities")] = types
                 obj[lower_label1] = {
@@ -42,7 +45,9 @@ def index1(doc,label1, label2, scope = 1):
                 low = ent1_sent_i if ent1_sent_i < ent2_sent_i  else ent2_sent_i
                 high = ent1_sent_i if ent1_sent_i > ent2_sent_i  else ent2_sent_i
                 phrase_list = " ".join([sent.text for sent in list(doc.sents)[low:high+1]])
+                #returns the string of all the sentences that include and between entities
                 phrase_ = "".join(phrase_list)
+                #storing the data into an object and appending to a list
                 obj[str("phrase")] = {
                                     str("text"): str(phrase_list)
                                         }
@@ -58,6 +63,8 @@ def index1(doc,label1, label2, scope = 1):
                                     str("text"): [str(anc) for anc in ent2.ancestors if anc.pos_ in ["VERB", "NOUN"]],
                                     str("POS"): [anc.pos_ for anc in ent2.ancestors]
                                     }
+                #gives the relation by iterating through the entities' ancestors and including those who part of speech are either verbs or nouns
+
                 obj[str("relation1")] = {
                                     str("text"): [str(anc) for anc in ent1.ancestors if anc.pos_ in ["VERB", "NOUN"]]
                                     }
@@ -66,6 +73,8 @@ def index1(doc,label1, label2, scope = 1):
                                     }
                 entities.append(obj)
     return entities
+
+#relation + entity = entity
 def index2(doc,label1, relation, scope = 1):
     sent_index = {}
     sent_order = {}
@@ -75,6 +84,8 @@ def index2(doc,label1, relation, scope = 1):
         sent_index[sent] = index
     for index,sent in enumerate(doc.sents):
         sent_order[index] = sent
+    #looks up index of both sentences
+    #compares to see if their indices are as apart as to what the scope would define
     entities = []
     types = [lower_label, lower_relation]
     for ent1 in doc.user_data[label1]:
@@ -84,7 +95,10 @@ def index2(doc,label1, relation, scope = 1):
             rel_sent = rel.sent
             ent1_sent_i = sent_index[ent1_sent]
             rel_sent_i = sent_index[rel_sent]
+            #looks up index of both sentences
+            #compares to see if their indices are as apart as to what the scope would define
             if abs(ent1_sent_i - rel_sent_i) < scope:
+                #object stores data
                 obj[str("entities")] = types
                 obj[lower_label] = {
                                 str("value"): ent1._.text,
@@ -103,6 +117,8 @@ def index2(doc,label1, relation, scope = 1):
                 sentence2 = rel.sent
                 ent_token = rel
                 entity = extract_entity(ent_token, relation)
+                #looks through the ancestors of the relation and checks for any entities that may be in its furthest ancestor or that ancestor's children
+                #storing the data into an object and appending to a list
                 if entity:
                     obj[str("entity")] = {
                                         str("value"): str(entity.text),
@@ -115,6 +131,8 @@ def index2(doc,label1, relation, scope = 1):
                 high = ent1_sent_i if ent1_sent_i > rel_sent_i  else rel_sent_i
 
                 phrase_list = [sent.text for sent in list(doc.sents)[low:high+1]]
+                #returns the string of all the sentences that include and between entities
+                #stores the data
                 phrase_ = " ".join(phrase_list)
                 obj[str("phrase")] = {
                                     str("text"): str(phrase_)
@@ -140,6 +158,7 @@ def index2(doc,label1, relation, scope = 1):
                 entities.append(obj)
     return entities
 
+#indexes all sentences with two entities and relation(if one exists among the sentences that wrap the entities)
 def index3(doc,label1, label2,relation,scope = 1):
     sent_index = {}
     sent_order = {}
@@ -182,6 +201,8 @@ def index3(doc,label1, label2,relation,scope = 1):
                 for rel in doc.user_data[relation]:
                     if rel.sent.text in phrase_list:
                         rel_entity = rel
+                #checks to see if a relation exist among the scope of sentences containing and between the entities
+                #if so add it to the data
                         obj[str(relation)] = {
                                             str("value"): str(rel_entity.text),
                                             str("position"): rel_entity.sent.text.index(rel_entity.text),
