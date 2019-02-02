@@ -16,7 +16,7 @@ Perhaps:
 2. You need an intuitive tool that takes an object oriented approach and extracts information from text.
 3. You are operating a web application that contains information you would like to analyze by sending a web request to an API endpoint.
 4. You aim to define a quick and scalable solution.
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
 📖 Documentation
 ### Installing
 spaCy is a library for advanced Natural Language Processing in Python and Cython. It's built on the very latest research, and was designed from day one to be used in real products. spaCy comes with pre-trained statistical models and word vectors, and currently supports tokenization for 30+ languages. It features the fastest syntactic parser in the world, convolutional neural network models for tagging, parsing and named entity recognition and easy deep learning integration. It's commercial open-source software, released under the MIT license.
@@ -76,7 +76,7 @@ numpy==1.16.0
 # Usage:
 The entity and relation values can either be in a list or in a string separated by semicolons.
 * Return relations from two different sets of entities:
-    * POST https://secure-spire-37812.herokuapp.com/api/entity_entity
+* POST https://secure-spire-37812.herokuapp.com/api/entity_entity
 ```
     {
       "entity_1_values": "Emmanuel Macron;Macron",
@@ -89,7 +89,7 @@ The entity and relation values can either be in a list or in a string separated 
 ```
 
 * Return entities given two unique sets of relations and entities:
-    * POST https://secure-spire-37812.herokuapp.com/api/relation_entity
+* POST https://secure-spire-37812.herokuapp.com/api/relation_entity
 ```
     {
         "entity_values": "Calcium channel blockers",
