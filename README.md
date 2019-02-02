@@ -15,7 +15,7 @@ Perhaps:
 1. You want a mental model or an example of what an NLP tool entails.
 2. You need an intuitive tool that takes an object oriented approach to extracting information from text.
 3. You are operating a web application that contains information you would like to analyze simply by sending a web request to an API endpoint.
-4. You aim to define a quick solution easier to use than a text mining agent(TMA) and more scalable than regex. 
+4. You aim to define a quick solution easier to use than a text mining agent(TMA) and more scalable than regex.
 
 # Documentation 📖
 ### Installing
@@ -36,7 +36,7 @@ python -m spacy download en_core_web_sm
 ```
 https://devcenter.heroku.com/articles/heroku-cli
 #### Deploying to Heroku
-
+**Tutorial:** https://www.youtube.com/watch?v=skc-ZEU9kO8&t=300s
 ```
 $ heroku create
 $ git push heroku master
@@ -46,7 +46,7 @@ or
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 ##### Note:
-Add the spacy library's github rather than its python library name to the requirements.txt, like shown below.
+Add the spacy model's github link rather than its python library name to the requirements.txt as shown below.
 
 ```
 ...
@@ -76,7 +76,7 @@ numpy==1.16.0
 # Usage:
 The entity and relation values can either be in a list or in a string separated by semicolons.
 * Return relations from two different sets of entities:
-* POST https://secure-spire-37812.herokuapp.com/api/entity_entity
+    * POST https://secure-spire-37812.herokuapp.com/api/entity_entity
 ```
     {
       "entity_1_values": "Emmanuel Macron;Macron",
@@ -89,7 +89,7 @@ The entity and relation values can either be in a list or in a string separated 
 ```
 
 * Return entities given two unique sets of relations and entities:
-* POST https://secure-spire-37812.herokuapp.com/api/relation_entity
+    * POST https://secure-spire-37812.herokuapp.com/api/relation_entity
 ```
     {
         "entity_values": "Calcium channel blockers",
@@ -123,7 +123,7 @@ The entity and relation values can either be in a list or in a string separated 
   - [POST /api/relation_entity](#post-api/relation_entity)
   - [POST /api/all_entities_relations](#post-api/all_entities_relations)
 ### POST /api/entity_entity
-Example: http://example.gov/api/v1/magazines.json
+Example: https://secure-spire-37812.herokuapp.com/api/relation_entity
 Response body:
 ```
 {
@@ -444,3 +444,4 @@ Contributions are always welcome!
    border="0"
    alt="Flask powered"
    title="Flask powered"></a>
+[Heroku](https://miro.medium.com/max/768/1*w2RAR48UbSAYv-6y_V-cdA.png)
