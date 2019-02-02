@@ -438,6 +438,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 Contributions are always welcome!
 ## Acknowledgments
 * Sinequa: https://www.sinequa.com/
+
 <a href="http://flask.pocoo.org/"><img
     src="http://flask.pocoo.org/static/badges/flask-powered.png"
    border="0"
