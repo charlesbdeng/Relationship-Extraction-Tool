@@ -444,4 +444,8 @@ Contributions are always welcome!
    border="0"
    alt="Flask powered"
    title="Flask powered"></a>
-[!Heroku](https://miro.medium.com/max/768/1*w2RAR48UbSAYv-6y_V-cdA.png)
+   <a href="http://heroku.com/"><img
+       src="https://miro.medium.com/max/768/1*w2RAR48UbSAYv-6y_V-cdA.png"
+      border="0"
+      alt="Heroku powered"
+      title="Heroku powered"></a>
