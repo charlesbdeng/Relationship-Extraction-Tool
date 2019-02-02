@@ -1,18 +1,18 @@
-from __future__ import unicode_literals, print_function
-import spacy
-from spacy.matcher import PhraseMatcher
-from spacy.matcher import Matcher
-from spacy.tokens import Span
-from spacy.language import Language
-from collections import Counter
-from connectors import load_doc, load_whitelist, encode
-from entity_matcher import EntityMatcherCreator
-from relation_functions import extract_entity
-from e_r import ent_relation
-from relation_matcher import RM_Creator
-from indexers import index1,index2, index3
-from spacy.lemmatizer import Lemmatizer
-from spacy.lang.en import LEMMA_INDEX, LEMMA_EXC, LEMMA_RULES
+# from __future__ import unicode_literals, print_function
+# import spacy
+# from spacy.matcher import PhraseMatcher
+# from spacy.matcher import Matcher
+# from spacy.tokens import Span
+# from spacy.language import Language
+# from collections import Counter
+# from connectors import load_doc, load_whitelist, encode
+# from entity_matcher import EntityMatcherCreator
+# from relation_functions import extract_entity
+# from e_r import ent_relation
+# from relation_matcher import RM_Creator
+# from indexers import index1,index2, index3
+# from spacy.lemmatizer import Lemmatizer
+# from spacy.lang.en import LEMMA_INDEX, LEMMA_EXC, LEMMA_RULES
 ###test file###
 
 

@@ -1,9 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import re
-import spacy
 from spacy import displacy
-from collections import Counter
 import en_core_web_sm
 from load import encode
 nlp = en_core_web_sm.load()

@@ -1,5 +1,4 @@
 from __future__ import print_function,unicode_literals
-import json
 from relation_functions import extract_entity
 
 #entity + entity = relation

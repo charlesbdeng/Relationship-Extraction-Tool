@@ -11,12 +11,12 @@ def load_doc(file):
 
 
 def load_whitelist(file):
-    #function to load whitelist
+    function to load whitelist
     try:
         basestring
     except NameError:
         basestring = str
-    #above code needs to be taken out when running using python 2.7
+    # basestring is removed in python 3.6, use string instead
     if isinstance(file, list):
         return file
     if isinstance(file,basestring) and file.find('.txt') < 0:
