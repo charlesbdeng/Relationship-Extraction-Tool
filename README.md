@@ -10,7 +10,7 @@
 # Relex
 ------
 A simple user-friendly NLP tool leveraging a powerful natural language processing library, regex, and intuitive pipelines to analyze text and extract entities, relations, and other syntactic features such as parsed syntactic trees.
-## Why should you care?
+## Why you should care
 Perhaps:
 1. You want to create a mental model or get an example of an NLP tool
 2. You need an intuitive tool that takes an object oriented approach and extracts information from text.
