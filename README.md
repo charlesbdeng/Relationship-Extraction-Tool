@@ -12,10 +12,10 @@
 A simple user-friendly NLP tool leveraging a powerful natural language processing library, regex, and intuitive pipelines to analyze text and extract entities, relations, and other syntactic features such as parsed syntactic trees.
 ## Why you should care
 Perhaps:
-1. You want to create a mental model or get an example of an NLP tool
-2. You need an intuitive tool that takes an object oriented approach and extracts information from text.
-3. You are operating a web application that contains information you would like to analyze by sending a web request to an API endpoint.
-4. You aim to define a quick and scalable solution.
+1. You want a mental model or an example of what an NLP tool entails.
+2. You need an intuitive tool that takes an object oriented approach to extracting information from text.
+3. You are operating a web application that contains information you would like to analyze simply by sending a web request to an API endpoint.
+4. You aim to define a quick solution easier to use than a text mining agent(TMA) and more scalable than regex. 
 
 # Documentation 📖
 ### Installing
