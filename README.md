@@ -7,11 +7,8 @@
 ![Heroku](http://heroku-badge.herokuapp.com/?app=angularjs-crypto&style=flat&svg=1)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/35ba0b8c1364449baf1ed01331dac874)](https://www.codacy.com/app/charlesxdeng/Relex?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=charlesxdeng/Relex&amp;utm_campaign=Badge_Grade)
 ![Relex](https://img.shields.io/badge/Relex-NLP-red.svg)
-
-
 # Relex
 ------
-
 A simple user-friendly NLP tool leveraging a powerful natural language processing library, regex, and intuitive pipelines to analyze text and extract entities, relations, and other syntactic features such as parsed syntactic trees.
 ## Why should you care?
 Perhaps:
@@ -19,13 +16,9 @@ Perhaps:
 2. You need an intuitive tool that takes an object oriented approach and extracts information from text.
 3. You are operating a web application that contains information you would like to analyze by sending a web request to an API endpoint.
 4. You aim to define a quick and scalable solution.
-
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
 📖 Documentation
-
 ### Installing
-
 spaCy is a library for advanced Natural Language Processing in Python and Cython. It's built on the very latest research, and was designed from day one to be used in real products. spaCy comes with pre-trained statistical models and word vectors, and currently supports tokenization for 30+ languages. It features the fastest syntactic parser in the world, convolutional neural network models for tagging, parsing and named entity recognition and easy deep learning integration. It's commercial open-source software, released under the MIT license.
 
 Install the NLP library, Spacy IO, by following the instructions in the link: https://spacy.io/usage/
@@ -42,7 +35,6 @@ Install the language model "en_core_web_sm" needed to assign word vectors, conte
 python -m spacy download en_core_web_sm
 ```
 https://devcenter.heroku.com/articles/heroku-cli
-
 #### Deploying to Heroku
 
 ```
@@ -126,17 +118,12 @@ The entity and relation values can either be in a list or in a string separated 
 }
 
 ```
-
 ### API Resources
-
   - [POST /api/entity_entity](#post-api/entity_entity)
   - [POST /api/relation_entity](#post-api/relation_entity)
   - [POST /api/all_entities_relations](#post-api/all_entities_relations)
-
 ### POST /api/entity_entity
-
 Example: http://example.gov/api/v1/magazines.json
-
 Response body:
 ```
 {
@@ -283,10 +270,9 @@ Response body:
 }
 ```
 ### POST /api/relation_entity
-
 Example: https://secure-spire-37812.herokuapp.com/api/relation_entity
 Response body:
-
+```
     {
     "data": [
         {
@@ -364,13 +350,9 @@ Response body:
 
     ]
 }
-
-
-
+```
 ### POST /api/all_relations
-
 Example: http://example.gov/api/v1/magazines/[id]/articles
-
 Request body:
 ```
 [    
@@ -450,19 +432,12 @@ Request body:
     ]
 }
 ```
-
 ## License
-
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-
 # Contributions
 Contributions are always welcome!
-
 ## Acknowledgments
-
 * Sinequa: https://www.sinequa.com/
-
 <a href="http://flask.pocoo.org/"><img
     src="http://flask.pocoo.org/static/badges/flask-powered.png"
    border="0"
