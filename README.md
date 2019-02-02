@@ -439,14 +439,14 @@ Contributions are always welcome!
 ## Acknowledgments
 * Sinequa: https://www.sinequa.com/
 
-<a align="center" href="http://heroku.com/"><img
+<a href="http://heroku.com/"><img
  src="https://miro.medium.com/max/768/1*w2RAR48UbSAYv-6y_V-cdA.png"
 border="0"
 alt="Heroku powered"
 title="Heroku powered"></a>
 
-<a align="center" href="http://flask.pocoo.org/"><img
+<p align="center"><a href="http://flask.pocoo.org/"><img
     src="http://flask.pocoo.org/static/badges/flask-powered.png"
    border="0"
    alt="Flask powered"
-   title="Flask powered"></a>
+   title="Flask powered"></a></p>
