@@ -52,7 +52,6 @@ class EntityMatcher(object):
             if compound:
                 literal = ""
             for index,tok in enumerate(phrase):
-                entity = dict()
                 if compound:
                     literal = doc[start:end].text
                     if index == len(phrase)-1:

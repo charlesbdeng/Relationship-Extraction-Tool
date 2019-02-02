@@ -3,8 +3,6 @@ from spacy.matcher import Matcher
 from spacy.tokens import Span
 from spacy.language import Language
 import re
-from spacy.symbols import LEMMA
-
 
 def RelationMatcherCreator(nlp, terms, label):
     #function adds relationMatcher to the pipeline

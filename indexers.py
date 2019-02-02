@@ -19,7 +19,6 @@ def index1(doc,label1, label2, scope = 1):
             obj = dict()
             ent1_sent = ent1.sent
             ent2_sent = ent2.sent
-
             ent1_sent_i = sent_index[ent1_sent]
             ent2_sent_i = sent_index[ent2_sent]
             #looks up index of both sentences
@@ -45,7 +44,6 @@ def index1(doc,label1, label2, scope = 1):
                 high = ent1_sent_i if ent1_sent_i > ent2_sent_i  else ent2_sent_i
                 phrase_list = " ".join([sent.text for sent in list(doc.sents)[low:high+1]])
                 #returns the string of all the sentences that include and between entities
-                phrase_ = "".join(phrase_list)
                 #storing the data into an object and appending to a list
                 obj[str("phrase")] = {
                                     str("text"): str(phrase_list)
@@ -198,10 +196,8 @@ def index3(doc,label1, label2,relation,scope = 1):
                 high = ent1_sent_i if ent1_sent_i > ent2_sent_i  else ent2_sent_i
                 phrase_list = [sent.text for sent in list(doc.sents)[low:high+1]]
                 for rel in doc.user_data[relation]:
-                    if rel.sent.text in phrase_list:
-                        rel_entity = rel
-                #checks to see if a relation exist among the scope of sentences containing and between the entities
-                #if so add it to the data
+                    if rel.sent.text in phrase_list: #checks to see if a relation exist among the scope of sentences containing and between the entities
+                        rel_entity = rel  #if so add it to the data                
                         obj[str(relation)] = {
                                             str("value"): str(rel_entity.text),
                                             str("position"): rel_entity.sent.text.index(rel_entity.text),
@@ -216,7 +212,7 @@ def index3(doc,label1, label2,relation,scope = 1):
                         break
                 phrase_ = "".join(phrase_list)
                 obj[str("phrase")] = {
-                                    str("text"): str(phrase_list)
+                                    str("text"): str(phrase_)
                                         }
                 obj[str("sentence1")] = {
                                     str("text"): str(sentence1),

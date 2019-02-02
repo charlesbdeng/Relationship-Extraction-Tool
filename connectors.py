@@ -11,7 +11,7 @@ def load_doc(file):
 
 
 def load_whitelist(file):
-    function to load whitelist
+    #function to load whitelist
     try:
         basestring
     except NameError:
