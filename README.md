@@ -45,7 +45,7 @@ $ heroku open
 or
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-##### Note:
+#### Note:
 Add the spacy model's github link instead of its python library name to the requirements.txt as shown below.
 
 ```
@@ -351,8 +351,8 @@ Response body:
     ]
 }
 ```
-### POST /api/all_relations
-Example: http://example.gov/api/v1/magazines/[id]/articles
+### POST /api/all_entities_relations
+Example: https://secure-spire-37812.herokuapp.com/api/all_entities_relations
 Request body:
 ```
 [    
