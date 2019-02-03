@@ -4,7 +4,6 @@
 [![GitHub Issues](https://img.shields.io/github/issues/anfederico/flaskex.svg)](https://github.com/anfederico/flaskex/issues)
 ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-![Heroku](http://heroku-badge.herokuapp.com/?app=angularjs-crypto&style=flat&svg=1)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/35ba0b8c1364449baf1ed01331dac874)](https://www.codacy.com/app/charlesxdeng/Relex?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=charlesxdeng/Relex&amp;utm_campaign=Badge_Grade)
 ![Relex](https://img.shields.io/badge/Relex-NLP-red.svg)
 # Relex
