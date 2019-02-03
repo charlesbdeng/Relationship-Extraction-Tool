@@ -46,7 +46,7 @@ or
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 ##### Note:
-Add the spacy model's github link rather than its python library name to the requirements.txt as shown below.
+Add the spacy model's github link instead of its python library name to the requirements.txt as shown below.
 
 ```
 ...
@@ -73,7 +73,7 @@ numpy==1.16.0
 
 
 
-# Usage:
+## Usage:
 The entity and relation values can either be in a list or in a string separated by semicolons.
 * Return relations from two different sets of entities:
     * POST https://secure-spire-37812.herokuapp.com/api/entity_entity
