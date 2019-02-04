@@ -123,6 +123,7 @@ The entity and relation values can either be in a list or in a string separated 
   - [POST /api/all_entities_relations](#post-api/all_entities_relations)
 ### POST /api/entity_entity
 Example: https://secure-spire-37812.herokuapp.com/api/relation_entity
+
 Response body:
 ```
 {
@@ -270,6 +271,7 @@ Response body:
 ```
 ### POST /api/relation_entity
 Example: https://secure-spire-37812.herokuapp.com/api/relation_entity
+
 Response body:
 ```
     {
@@ -352,6 +354,7 @@ Response body:
 ```
 ### POST /api/all_entities_relations
 Example: https://secure-spire-37812.herokuapp.com/api/all_entities_relations
+
 Request body:
 ```
 [    
