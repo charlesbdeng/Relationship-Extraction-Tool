@@ -1,4 +1,4 @@
-![Flask](http://flask.pocoo.org/static/badges/flask-project-s.png)
+![Flask](https://raw.githubusercontent.com/pallets/flask-website/master/flask_website/static/badges/flask-powered.png)
 ![Python](https://img.shields.io/badge/python-v3.6-blue.svg)
 ![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)
 [![GitHub Issues](https://img.shields.io/github/issues/anfederico/flaskex.svg)](https://github.com/anfederico/flaskex/issues)
