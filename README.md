@@ -448,7 +448,7 @@ alt="Heroku powered"
 title="Heroku powered"></a></p>
 
 <p align="center"><a href="http://flask.pocoo.org/"><img
-    src="http://flask.pocoo.org/static/badges/flask-powered.png"
+    src="https://raw.githubusercontent.com/pallets/flask-website/master/flask_website/static/badges/flask-powered.png"
    border="0"
    alt="Flask powered"
    title="Flask powered"></a></p>
